@@ -1,6 +1,6 @@
 
 pipeline {
-    agent { label 'MAVEN_JDK8' }
+    agent { label 'SPRING-PET' }
     stages {
         stage('vcs') {
             steps {
