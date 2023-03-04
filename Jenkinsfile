@@ -11,10 +11,10 @@ pipeline {
         stage('package') {
             steps {
                 sh 'export "PATH=/usr/lib/jvm/java-openjdk-1.8.0-amd64/bin:$PATH"'
-                sh 'gradle --version'
-                sh 'gradle'
-                sh 'gradle tasks'
-                sh 'gradle build'
+                sh 'wget -c https://services.gradle.org/distributions/gradle-7.4.2-bin.zip -P /tmp'
+                sh 'sudo apt install unzip'
+                sh 'sudo unzip -d /opt/gradle /tmp/gradle-7.4.2-bin.zip'
+                sh ''
             }
         }
         stage('post build') {
