@@ -4,7 +4,7 @@ pipeline {
         stage('vcs') {
             steps {
                 git url: 'https://github.com/GitpracticeDemo/spring-petclinicgradle.git',
-                    branch: 'main'
+                    branch: 'scripted'
             }
         }
          stage('Create directory') {
