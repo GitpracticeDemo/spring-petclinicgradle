@@ -23,7 +23,8 @@ pipeline {
         }
         stage('post build') {
             steps {
-                archiveArtifacts artifacts: '**/opt/gradle-7.4.2',
+                archiveArtifacts artifacts: '**/*.txt',
+                                 fingerprint: true
                                  onlyIfSuccessful: true
                 junit testResults: '**/surefire-reports/TEST-*.xml'
             }
