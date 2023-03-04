@@ -11,8 +11,8 @@ pipeline {
             steps {
                 sh 'export "PATH=/usr/lib/jvm/java-openjdk-1.8.0-amd64/bin:$PATH"'
                 sh 'wget -c https://services.gradle.org/distributions/gradle-7.4.2-bin.zip -P /tmp'
-                sh 'sudo apt install unzip -y'
-                sh 'sudo unzip -d /opt/gradle /tmp/gradle-7.4.2-bin.zip'
+                sh 'sudo apt install unzip'
+                sh 'sudo unzip -d /opt/gradle /tmp/gradle-7.4.2-bin.zip -y'
                 
             }
         }
