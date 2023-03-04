@@ -12,6 +12,8 @@ pipeline {
                 echo 'Compile project'
                 sh "chmod +x gradlew"
                 sh "./gradlew clean build --no-daemon"
+                sh 'gradle tasks'
+                sh 'gradle build'
             }
         }   
       //    stage('package') {
