@@ -12,6 +12,7 @@ pipeline {
                 sh 'sudo mkdir /opt/gradle-7.4.2'
                 sh 'sudo chmod o+w /opt/gradle-7.4.2'
             }
+        }    
          stage('package') {
             steps {
                 sh 'export "PATH=/usr/lib/jvm/java-openjdk-1.8.0-amd64/bin:$PATH"'
