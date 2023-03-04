@@ -9,7 +9,7 @@ pipeline {
         }
         stage('build'){
             steps {
-                sh "gradlew build"
+                sh "/opt/gradle/gradle-7.4.2/bin/gradle build"
             }
         }   
         stage('post build') {
