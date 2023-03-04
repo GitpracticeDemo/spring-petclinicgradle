@@ -7,19 +7,11 @@ pipeline {
                     branch: 'scripted'
             }
         }
-        stage('permission to gradel'){
+        stage('build'){
             steps {
-                echo 'Compile project'
-                sh "chmod +x gradlew"
-                sh "./gradlew clean build --no-daemon"
+                sh "gradle build"
             }
         }   
-        stage('package') {
-             steps {
-                 sh 'export "PATH=/usr/lib/jvm/java-openjdk-1.8.0-amd64/bin:$PATH"'
-                 sh 'wget -O /tmp/gradle-7.4.2-bin.zip https://services.gradle.org/distributions/gradle-7.4.2-bin.zip'
-            }  
-        }       
         stage('post build') {
             steps {
                 archiveArtifacts artifacts: '**/*.txt',
