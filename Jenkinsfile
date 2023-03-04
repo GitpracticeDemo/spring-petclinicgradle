@@ -10,7 +10,6 @@ pipeline {
          stage('package') {
             steps {
                 sh 'export "PATH=/usr/lib/jvm/java-openjdk-1.8.0-amd64/bin:$PATH"'
-                sh 'mkdir /opt/gradle-7.4.2'
                 sh 'chown ubuntu /opt/gradle-7.4.2'
                 sh 'chmod o+w /opt/gradle-7.4.2'
                 sh 'wget -O /tmp/gradle-7.4.2-bin.zip https://services.gradle.org/distributions/gradle-7.4.2-bin.zip'
