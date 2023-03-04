@@ -20,9 +20,6 @@ pipeline {
       //           sh 'chmod o+w /opt/gradle-7.4.2'
       //           sh 'wget -O /tmp/gradle-7.4.2-bin.zip https://services.gradle.org/distributions/gradle-7.4.2-bin.zip'
       //           sh 'unzip /tmp/gradle-7.4.2-bin.zip -d /opt'
-                
-      //       }
-        }
         stage('post build') {
             steps {
                 archiveArtifacts artifacts: '**/*.txt',
