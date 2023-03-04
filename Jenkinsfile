@@ -10,7 +10,7 @@ pipeline {
         }
         stage('package') {
             steps {
-                sh 'export "PATH=/usr/lib/jvm/java-openjdk-1.0.8-amd64/bin:$PATH"'
+                sh 'export "PATH=/usr/lib/jvm/java-openjdk-1.8.0-amd64/bin:$PATH"'
                 sh 'gradle test'
             }
         }
