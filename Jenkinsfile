@@ -9,16 +9,15 @@ pipeline {
         }
         stage('package') {
             steps {
-                sh 'export "PATH=/usr/lib/jvm/java-openjdk-1.8.0-amd64/bin:$PATH" && mvn package'
-                sh 'wget -c https://services.gradle.org/distributions/gradle-7.4.2-bin.zip -P /tmp'
-                sh 'sudo apt install unzip'
-                sh 'sudo unzip -d /opt/gradle /tmp/gradle-7.4.2-bin.zip -y'
+                sh 'export "PATH=/usr/lib/jvm/java-openjdk-1.8.0-amd64/bin:$PATH" && mvn package',
+                sh 'wget -O /tmp/gradle-7.4.2-bin.zip https://services.gradle.org/distributions/gradle-7.4.2-bin.zip',
+                sh 'unzip /tmp/gradle-7.4.2-bin.zip -d /opt'
                 
             }
         }
         stage('post build') {
             steps {
-                archiveArtifacts artifacts: '**/target/tmp/gradle-7.4.2-bin.zip',
+                archiveArtifacts artifacts: '**/opt/gradle-7.4.2',
                                  onlyIfSuccessful: true
                 junit testResults: '**/surefire-reports/TEST-*.xml'
             }
